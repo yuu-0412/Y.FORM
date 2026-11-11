@@ -1,0 +1,1296 @@
+
+/* =========================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #0D2035;
+    --bg-light: rgba(25, 53, 79, 0.18);
+    --card: rgba(13, 32, 53, 0.55);
+    --silver: #C5D5E3;
+    --white: #F1F5F8;
+    --gray: #B2C1CE;
+    --line: rgba(220, 235, 247, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+    background: #0D2035;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: #F1F5F8;
+    background: linear-gradient(
+        180deg,
+        #719BB8 0%,
+        #426C8B 20%,
+        #294B68 45%,
+        #19354F 70%,
+        #0D2035 100%
+    );
+    background-repeat: no-repeat;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+::selection {
+    background: #C5D5E3;
+    color: #0D2035;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    background: rgba(19, 45, 66, 0.72);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 3px;
+}
+
+.logo-y {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.logo-name {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--silver);
+}
+
+.nav {
+    display: flex;
+    gap: 35px;
+}
+
+.nav a {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #D5E1EB;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: var(--white);
+}
+
+/* GITHUB LINK */
+
+.header-github {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--silver);
+    text-decoration: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+
+.header-github svg {
+    width: 19px;
+    height: 19px;
+    transition: transform 0.3s ease;
+}
+
+.github-arrow {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+.header-github:hover {
+    color: #ffffff;
+}
+
+.header-github:hover svg {
+    transform: scale(1.12);
+}
+
+.header-github:hover .github-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 760px;
+    height: calc(100vh - 85px);
+    max-height: 950px;
+    padding: 35px 7%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.hero-top,
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    margin-top: -20px;
+}
+
+.hero-small {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(75px, 14vw, 190px);
+    line-height: 1;
+    letter-spacing: -10px;
+    font-weight: 400;
+    color: var(--white);
+}
+
+.hero-dot {
+    color: var(--silver);
+}
+
+.hero-subtitle {
+    font-size: 13px;
+    letter-spacing: 7px;
+    color: var(--silver);
+    margin-top: 25px;
+}
+
+.hero-description {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    line-height: 2.4;
+    color: #C5D5E3;
+    margin-top: 35px;
+}
+
+.hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--silver);
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.hero-link:hover {
+    gap: 50px;
+    color: var(--silver);
+}
+
+.hero-link span {
+    font-size: 17px;
+}
+
+.hero-circle {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border: 1px solid rgba(197, 213, 227, 0.2);
+    border-radius: 50%;
+    right: -100px;
+    top: 20%;
+}
+
+.hero-circle::before {
+    content: "";
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(197, 213, 227, 0.15);
+    border-radius: 50%;
+    top: 70px;
+    left: 70px;
+}
+
+.hero-line {
+    position: absolute;
+    width: 1px;
+    height: 65%;
+    background: linear-gradient(
+        transparent,
+        rgba(197, 213, 227, 0.25),
+        transparent
+    );
+    right: 20%;
+    top: 15%;
+}
+
+
+/* =========================
+   COMMON SECTION
+========================= */
+
+.section {
+    padding: 140px 10%;
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 80px;
+}
+
+.section-number {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: clamp(40px, 6vw, 70px);
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: var(--white);
+}
+
+.section-heading h2 span {
+    color: var(--silver);
+}
+
+.section-heading > p {
+    margin-left: auto;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gray);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    background: transparent;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+.about-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gray);
+    margin-bottom: 35px;
+}
+
+.about-left h3 {
+    font-size: clamp(32px, 4vw, 55px);
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: -2px;
+}
+
+.about-right {
+    padding-top: 15px;
+}
+
+.about-name {
+    font-size: 17px;
+    color: var(--white);
+    margin-bottom: 25px;
+}
+
+.about-right > p:not(.about-name) {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    color: #C5D5E3;
+    line-height: 2.5;
+    margin-bottom: 20px;
+}
+
+.about-info {
+    margin-top: 50px;
+    border-top: 1px solid var(--line);
+}
+
+.about-info div {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.about-info span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+.about-info p {
+    font-size: 11px;
+    color: var(--silver);
+}
+
+
+/* =========================
+   WORKS
+========================= */
+
+.works {
+    background: transparent;
+}
+
+.works-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.works-intro p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    color: #C5D5E3;
+}
+
+.works-intro span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px 35px;
+}
+
+.work-card {
+    min-width: 0;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.work-card:hover {
+    color: inherit;
+}
+
+.work-image {
+    height: 310px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #171a1e;
+    border: 1px solid rgba(220, 235, 247, 0.2);
+    transition:
+        transform 0.8s ease,
+        border-color 0.5s ease;
+}
+
+.work-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.03);
+}
+
+.work-index {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+.work-image-text {
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 300;
+    letter-spacing: -3px;
+    line-height: 1.05;
+    text-align: center;
+    color: #C4D3DF;
+    transition: 0.4s;
+}
+
+.work-card:hover .work-image-text {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+
+/* =========================
+   WORK 04 - GRAPHIC DESIGN
+========================= */
+
+/* 写真と文字を左右50％ずつにする */
+
+.work-image.graphic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    justify-content: stretch;
+    background: #0D2035;
+}
+
+/* 左側の写真 */
+
+.work-image.graphic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 右側の文字エリア */
+
+.graphic-title {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    background: #0D2035;
+    color: #C5D5E3;
+    font-family: "DM Sans", sans-serif;
+    font-size: clamp(18px, 2.5vw, 34px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Work 04の画像ホバー */
+
+.work-card:hover .work-image.graphic img {
+    transform: scale(1.03);
+}
+
+.work-card:hover .work-image.graphic .graphic-title {
+    color: #F1F5F8;
+}
+
+
+/* 個別画像の背景 */
+
+.oshilife {
+    background:
+        radial-gradient(circle at 50% 50%, #42464b 0%, #22262a 35%, #141619 75%);
+}
+
+.dogeza {
+    background:
+        linear-gradient(135deg, #30343a, #17191c 60%, #292d32);
+}
+
+.web {
+    background:
+        radial-gradient(circle at 70% 30%, #454a50, #202429 45%, #111315);
+}
+
+.graphic {
+    background:
+        linear-gradient(135deg, #363a3e, #17191b 50%, #41454a);
+}
+
+.work-card:hover .work-image {
+    transform: scale(1.025);
+    border-color: #A8C0D5;
+}
+
+.work-info {
+    padding-top: 20px;
+}
+
+.work-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--gray);
+}
+
+.work-info h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.work-info > p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    color: #C5D5E3;
+    line-height: 2;
+    min-height: 44px;
+}
+
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.work-tags span {
+    padding: 5px 11px;
+    border: 1px solid var(--line);
+    color: var(--gray);
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.works-note {
+    font-size: 9px;
+    color: var(--gray);
+    margin-top: 45px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    background: transparent;
+}
+
+.skills-intro {
+    margin-top: -40px;
+    margin-bottom: 55px;
+}
+
+.skills-intro p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    color: #C5D5E3;
+}
+
+.skills-list {
+    border-top: 1px solid var(--line);
+}
+
+.skill-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 180px 30px;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 10px;
+    border-bottom: 1px solid var(--line);
+    transition: 0.3s;
+}
+
+.skill-row:hover {
+    background: rgba(255, 255, 255, 0.04);
+    padding-left: 20px;
+}
+
+.skill-number {
+    font-size: 10px;
+    color: var(--gray);
+}
+
+.skill-main h3 {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--white);
+}
+
+.skill-main p {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 10px;
+    color: #C5D5E3;
+    margin-top: 3px;
+}
+
+.skill-category {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: var(--gray);
+}
+
+.skill-arrow {
+    font-size: 18px;
+    color: var(--silver);
+}
+
+.skills-note {
+    font-size: 9px;
+    color: var(--gray);
+    margin-top: 25px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    position: relative;
+    padding: 130px 10%;
+    background: rgba(13, 32, 53, 0.16);
+    border-top: 1px solid var(--line);
+    text-align: center;
+    overflow: hidden;
+}
+
+.contact-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+.contact h2 {
+    font-size: clamp(60px, 11vw, 125px);
+    line-height: 1.1;
+    font-weight: 300;
+    letter-spacing: -5px;
+    color: var(--white);
+}
+
+.contact h2 span {
+    color: var(--silver);
+}
+
+.contact-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    line-height: 2.5;
+    color: #C5D5E3;
+    margin-top: 35px;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 17px 30px;
+    margin-top: 40px;
+    border: 1px solid #A8C0D5;
+    font-size: 10px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.contact-button:hover {
+    background: var(--silver);
+    color: var(--bg);
+}
+
+.contact-button span {
+    font-size: 17px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 50px 7% 25px;
+    background: rgba(13, 32, 53, 0.28);
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.footer-logo span {
+    color: var(--silver);
+}
+
+.footer > p {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #C5D5E3;
+    margin-top: 5px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 55px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.footer-bottom span,
+.footer-bottom a {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #C5D5E3;
+    transition: 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: var(--white);
+}
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-45px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.work-card.reveal {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-card.show .work-image {
+    transform: scale(1);
+}
+
+.skill-row.reveal {
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal-left,
+    .work-card .work-image {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+.cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #8CA4C0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    background: #8CA4C0;
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background 0.3s ease;
+}
+
+.cursor-circle.active {
+    width: 45px;
+    height: 45px;
+    background: #8CA4C0;
+    border-color: #8CA4C0;
+}
+
+@media (hover: none), (prefers-reduced-motion: reduce) {
+    .cursor-circle {
+        display: none;
+    }
+}
+
+
+/* =========================
+   SOAP BUBBLES
+========================= */
+
+.bubble-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    left: var(--left);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 1px solid rgba(140, 164, 192, 0.55);
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255, 255, 255, 0.45),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 70% 75%,
+            rgba(140, 164, 192, 0.18),
+            transparent 55%
+        );
+
+    box-shadow:
+        inset -3px -3px 8px rgba(140, 164, 192, 0.15),
+        inset 3px 3px 8px rgba(255, 255, 255, 0.12),
+        0 0 12px rgba(140, 164, 192, 0.08);
+
+    opacity: 0;
+    animation: bubbleFloat var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes bubbleFloat {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.7);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.45;
+    }
+
+    100% {
+        transform: translate3d(var(--drift), -115vh, 0) scale(1.1);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bubble {
+        display: none;
+    }
+}
+
+
+/* =========================
+   BUBBLE LAYER
+========================= */
+
+.hero,
+.section,
+.contact,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+/* =========================
+   SOAP BUBBLES
+========================= */
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    left: var(--left);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+
+    border: 1px solid rgba(220, 240, 255, 0.35);
+
+    background: radial-gradient(
+        circle at 30% 25%,
+        rgba(255, 255, 255, 0.35),
+        rgba(180, 220, 245, 0.08) 45%,
+        rgba(120, 180, 220, 0.03) 70%
+    );
+
+    box-shadow:
+        inset 3px 3px 8px rgba(255, 255, 255, 0.12),
+        0 0 12px rgba(190, 225, 255, 0.08);
+
+    animation: bubbleFloat var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 20%;
+    height: 12%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    filter: blur(2px);
+}
+
+@keyframes bubbleFloat {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate3d(var(--drift), -120vh, 0);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    .header {
+        height: 70px;
+        padding: 0 5%;
+    }
+
+    .logo-y {
+        font-size: 23px;
+    }
+
+    .logo-name {
+        font-size: 16px;
+    }
+
+    .nav {
+        gap: 13px;
+    }
+
+    .nav a {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .header-github {
+        gap: 5px;
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .header-github svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .github-arrow {
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 680px;
+        height: calc(100vh - 70px);
+        padding: 25px 6%;
+    }
+
+    .hero h1 {
+        font-size: clamp(65px, 15vw, 110px);
+        letter-spacing: -5px;
+    }
+
+    .hero-subtitle {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+
+    .hero-description {
+        font-size: 11px;
+    }
+
+    .hero-circle {
+        width: 300px;
+        height: 300px;
+        right: -150px;
+        top: 20%;
+    }
+
+    .hero-circle::before {
+        width: 210px;
+        height: 210px;
+        top: 45px;
+        left: 45px;
+    }
+
+    .section {
+        padding: 90px 7%;
+    }
+
+    .section-heading {
+        gap: 15px;
+        margin-bottom: 55px;
+    }
+
+    .section-heading h2 {
+        font-size: 43px;
+    }
+
+    .section-heading > p {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-left h3 {
+        font-size: 40px;
+    }
+
+    .about-info div {
+        gap: 15px;
+    }
+
+    .about-info p {
+        text-align: right;
+    }
+
+    .works-intro {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .work-image {
+        height: 270px;
+    }
+
+    .work-image img {
+        width: 92%;
+        height: 88%;
+    }
+
+    /* WORK 04は左右50％のまま表示 */
+
+    .work-image.graphic {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 270px;
+    }
+
+    .work-image.graphic img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .graphic-title {
+        width: 100%;
+        height: 100%;
+        font-size: clamp(17px, 4vw, 26px);
+        letter-spacing: -1px;
+        padding: 5px;
+    }
+
+    .skill-row {
+        grid-template-columns: 25px 1fr 20px;
+        gap: 10px;
+    }
+
+    .skill-category {
+        display: none;
+    }
+
+    .skill-main h3 {
+        font-size: 16px;
+    }
+
+    .skill-main p {
+        font-size: 9px;
+    }
+
+    .contact {
+        padding: 100px 7%;
+    }
+
+    .contact h2 {
+        font-size: 65px;
+        letter-spacing: -3px;
+    }
+
+    .footer {
+        padding: 40px 7% 20px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media screen and (max-width: 420px) {
+
+    .nav {
+        gap: 9px;
+    }
+
+    .nav a {
+        font-size: 7px;
+    }
+
+    .header-github {
+        gap: 4px;
+        font-size: 8px;
+    }
+
+    .header-github svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .github-arrow {
+        display: none;
+    }
+
+    .hero-top,
+    .hero-bottom {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .section-heading h2 {
+        font-size: 35px;
+    }
+
+    .contact h2 {
+        font-size: 55px;
+    }
+
+   
+
+    .work-image.graphic {
+        grid-template-columns: 1fr 1fr;
+        height: 230px;
+    }
+
+    .graphic-title {
+        font-size: 17px;
+        letter-spacing: -1px;
+    }
+}
